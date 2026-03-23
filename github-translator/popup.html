@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub 翻译助手</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      width: 280px;
+      padding: 1rem;
+      background: #f8f9fa;
+    }
+    .form-switch .form-check-input {
+      width: 2.5rem;
+      height: 1.25rem;
+    }
+    .form-switch .form-check-input:checked {
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+    }
+    /* 自定义下拉框样式 */
+    .custom-select {
+      position: relative;
+    }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23444' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592c.86 0 1.32 1.013.754 1.658l-4.796 5.482a1 1 0 0 1-1.507 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 14px;
+      padding-right: 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ced4da;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+    .form-select:focus {
+      border-color: #86b7fe;
+      box-shadow: 0 0 0 0.25rem rgba(13,110,253,0.25);
+      outline: none;
+    }
+    /* 为下拉框添加图标前置效果 */
+    .input-group-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .select-icon {
+      position: absolute;
+      left: 0.75rem;
+      z-index: 5;
+      pointer-events: none;
+      font-size: 1rem;
+    }
+    .select-icon + .form-select {
+      padding-left: 2rem;
+    }
+    .btn-primary {
+      background-color: #0d6efd;
+      border: none;
+      transition: all 0.2s;
+      border-radius: 0.5rem;
+    }
+    .btn-primary:hover {
+      background-color: #0b5ed7;
+      transform: translateY(-1px);
+    }
+    hr {
+      margin: 0.75rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container p-0">
+    <h5 class="text-center mb-3 fw-semibold text-primary">
+      🌐 GitHub 局部翻译
+    </h5>
+
+    <!-- 启用开关 -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="fw-medium">启用翻译</span>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="toggle">
+      </div>
+    </div>
+
+    <!-- 语言选择（带图标） -->
+    <div class="mb-3">
+      <label for="language" class="form-label fw-medium">翻译语言</label>
+      <div class="input-group-icon">
+        <span class="select-icon">🌍</span>
+        <select id="language" class="form-select">
+          <!-- 选项会由 popup.js 动态填充，并添加国旗图标 -->
+        </select>
+      </div>
+    </div>
+
+    <button id="save" class="btn btn-primary w-100 btn-sm mt-2">
+      💾 保存设置
+    </button>
+
+    <hr class="my-3">
+    <div class="text-center small text-muted">
+      ⚡ 保存后页面将自动刷新
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
